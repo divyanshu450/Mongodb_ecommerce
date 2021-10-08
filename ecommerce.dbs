@@ -4,10 +4,10 @@
 		<table name="Carts" >
 			<column name="Product" type="string" jt="12" />
 			<column name="User" type="string" jt="12" />
-			<column name="Product_Qty" prior="Product Qty" type="int" jt="4" />
-			<column name="Base_Price" prior="Base Price" type="double" jt="8" />
-			<column name="Sell_Price" prior="Sell Price" type="double" jt="8" />
-			<column name="Total_Price" prior="Total Price" type="double" jt="8" />
+			<column name="Product Qty" prior="Product_Qty" type="int" jt="4" />
+			<column name="Base Price" prior="Base_Price" type="double" jt="8" />
+			<column name="Sell Price" prior="Sell_Price" type="double" jt="8" />
+			<column name="Total Price" prior="Total_Price" type="double" jt="8" />
 		</table>
 		<table name="Categories" >
 			<column name="Name" type="string" jt="12" />
@@ -21,15 +21,21 @@
 			<column name="Products" type="string" jt="12" />
 			<column name="Billing Address" type="string" jt="12" />
 			<column name="Shipping Address" type="string" jt="12" />
-			<column name="Transaction Status" type="symbol" jt="16" />
+			<column name="Transaction Status" type="enum" jt="12" >
+				<enumeration><![CDATA["success", "failed"]]></enumeration>
+			</column>
 			<column name="Payment Mode" type="string" jt="12" />
-			<column name="Payment Status" type="string" jt="12" />
-			<column name="Order Status" type="string" jt="12" />
+			<column name="Payment Status" type="enum" jt="12" >
+				<enumeration><![CDATA["paid", "unpaid"]]></enumeration>
+			</column>
+			<column name="Order Status" type="enum" jt="12" >
+				<enumeration><![CDATA["ordered", "canceled"]]></enumeration>
+			</column>
 		</table>
 		<table name="Products" >
 			<column name="Name" type="string" jt="12" />
 			<column name="Thumbnails" type="string" jt="12" />
-			<column name="Product Gallery" type="object" jt="4999544" />
+			<column name="Product Gallery" type="array[string]" jt="4999545" />
 			<column name="Description" type="string" jt="12" />
 			<column name="Base Price" type="double" jt="8" />
 			<column name="Sell Price" type="double" jt="8" />
@@ -49,13 +55,13 @@
 			<column name="First name" type="string" jt="12" />
 			<column name="Last Name" type="string" jt="12" />
 			<column name="Email" type="string" jt="12" />
-			<column name="Profile_image" prior="Profile image" type="bindata" jt="2004" />
+			<column name="Profile Image" prior="Profile_image" type="string" jt="12" />
 			<column name="Role" type="string" jt="12" />
 		</table>
 	</schema>
 	<connector name="MongoDb" database="MongoDb" driver_class="com.dbschema.MongoJdbcDriver" driver_jar="mongojdbc3.1.jar" driver_desc="No Authentication" host="localhost" port="27017" instance="ecommerce" user="admin" />
 	<layout name="Main Layout" id="Layout_1690" show_relation="columns" >
-		<comment><![CDATA[MongoDb]]></comment>
+		<comment><![CDATA[MongoDb_ecommerce]]></comment>
 		<entity schema="ecommerce" name="Carts" color="C1D8EE" x="368" y="80" />
 		<entity schema="ecommerce" name="Categories" color="C1D8EE" x="512" y="128" />
 		<entity schema="ecommerce" name="Orders" color="C1D8EE" x="1056" y="48" />

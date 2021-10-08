@@ -8,6 +8,14 @@ MongoClient.connect(url , function(err, client)
         {Product:'Smartphones', User: 'vb002', Product_Qty:2, Base_Price:819.30, Sell_Price:1100.30, Total_Price:1250.50},
         {Product:'Accessories', User: 'vb006', Product_Qty:2, Base_Price:629.30, Sell_Price:750.30, Total_Price:780.50},
         {Product:'Shoes', User: 'vb001', Product_Qty:1, Base_Price:329.30, Sell_Price:420.30, Total_Price:490.50},
+        {Product:'Laptops', User: 'vb001', Product_Qty:2, Base_Price:829.30, Sell_Price:1020.30, Total_Price:1050.50},
+        {Product:'Smartphones', User: 'vb002', Product_Qty:2, Base_Price:819.30, Sell_Price:1100.30, Total_Price:1250.50},
+        {Product:'Accessories', User: 'vb006', Product_Qty:2, Base_Price:629.30, Sell_Price:750.30, Total_Price:780.50},
+        {Product:'Shoes', User: 'vb001', Product_Qty:1, Base_Price:329.30, Sell_Price:420.30, Total_Price:490.50},
+        {Product:'Laptops', User: 'vb001', Product_Qty:2, Base_Price:829.30, Sell_Price:1020.30, Total_Price:1050.50},
+        {Product:'Smartphones', User: 'vb002', Product_Qty:2, Base_Price:819.30, Sell_Price:1100.30, Total_Price:1250.50},
+        {Product:'Accessories', User: 'vb006', Product_Qty:2, Base_Price:629.30, Sell_Price:750.30, Total_Price:780.50},
+        {Product:'Shoes', User: 'vb001', Product_Qty:1, Base_Price:329.30, Sell_Price:420.30, Total_Price:490.50},
     ];
 
     const db=client.db("ecommerce")
@@ -30,6 +38,7 @@ MongoClient.connect(url , function(err, client)
     db.collection("Carts").find({}).toArray(function(err, result2)
     {
         if(err) throw err
+        console.log("Found : "+result2.matchedcount)
         console.log(result2)
         
         

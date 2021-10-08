@@ -49,7 +49,7 @@
 			<column name="First name" type="string" jt="12" />
 			<column name="Last Name" type="string" jt="12" />
 			<column name="Email" type="string" jt="12" />
-			<column name="Profile image" type="object" jt="4999544" />
+			<column name="Profile_image" prior="Profile image" type="bindata" jt="2004" />
 			<column name="Role" type="string" jt="12" />
 		</table>
 	</schema>

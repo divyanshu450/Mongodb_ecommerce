@@ -10,6 +10,18 @@ MongoClient.connect(url, function(err, client)
         {Name: 'Shoes', slug:'Sneaker-Shoes'},
         {Name: 'Watches', slug:'Wrist-Watch'},
         {Name: 'Wallet', slug:'Men-Wallet'},
+        {Name: 'Smartphones', slug:'Phone-items'},
+        {Name: 'Desktops', slug:'PC-Components'},
+        {Name:'Cycles', slug:'Bi-Cycles'},
+        {Name: 'Shoes', slug:'Sneaker-Shoes'},
+        {Name: 'Watches', slug:'Wrist-Watch'},
+        {Name: 'Wallet', slug:'Men-Wallet'},
+        {Name: 'Smartphones', slug:'Phone-items'},
+        {Name: 'Desktops', slug:'PC-Components'},
+        {Name:'Cycles', slug:'Bi-Cycles'},
+        {Name: 'Shoes', slug:'Sneaker-Shoes'},
+        {Name: 'Watches', slug:'Wrist-Watch'},
+        {Name: 'Wallet', slug:'Men-Wallet'},
     ]
 
     const db= client.db("ecommerce")
@@ -23,6 +35,7 @@ MongoClient.connect(url, function(err, client)
     db.collection('Tags').find({}).toArray(function(err, result2)
     {
         if (err) throw err
+        console.log("Found : "+result2.matchedCount)
         console.log(result2)
         
     })
@@ -38,7 +51,7 @@ MongoClient.connect(url, function(err, client)
     {
         if (err) throw err
         console.log("Deleted : "+result4.deletedCount)
-        
+        client.close();
     })
-    client.close();
+    
 })

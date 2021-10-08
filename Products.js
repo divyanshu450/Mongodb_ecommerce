@@ -14,6 +14,16 @@ MongoClient.connect(url, function(err, client)
         {Name: 'Clothes', Thumbnails: 'https://img.freepik.com/free-photo/dark-haired-woman-with-red-lipstick-smiles-leans-stand-with-clothes-holds-package-pink-background_197531-17609.jpg?size=626&ext=jpg', Product_Gallery:{clothes}, Description:'Latest Summer trending clothes', Base_Price:'29.9', Sell_Price:'38.5', Category_Name:'Fashion',Tags:'Summer Wear',Additional_info:'Comfort summer wear with wide ranges to choose from' },
         {Name: 'Watches', Thumbnails: 'https://cdn.anscommerce.com/catalog/brandstore/johnson/17_7_20/Sale.jpg', Product_Gallery:{watches}, Description:'Smartwatches with elegant style', Base_Price:'1600.89', Sell_Price:'1879.69', Category_Name:'Watches',Tags:'Smartwatch',Additional_info:'Latest smartwatch with high end accurate sensors' },
         {Name: 'Shoes', Thumbnails: 'https://5.imimg.com/data5/BB/CV/SQ/SELLER-74573575/air-jordan-casual-shoes-250x250.jpg', Product_Gallery:{shoes}, Description:'Jordan jumpman limited edition shoes', Base_Price:'499.99', Sell_Price:'750.49', Category_Name:'Fashion',Tags:'Sneakers',Additional_info:'limited edition jordan jumpman with new colors to choose from' },
+        {Name:'Smartphones', Thumbnails:'https://www.xda-developers.com/files/2021/04/Best-Smartphones-to-buy-in-April-2021-1.jpg', Product_Gallery:{smartphone}, Description:'Smartphone with 5G', Base_Price:'389.56', Sell_Price:'520.70', Category_Name:'gadgets', Tags:'Mobiles', Additional_info:'Can beat China phones with ease'},
+        {Name: 'Laptop', Thumbnails: 'https://cdn.arstechnica.net/wp-content/uploads/2020/05/Razer-Blade-Pro-17-640x427.jpg', Product_Gallery:{laptop}, Description:'32mb L1 cache Gaming Laptop', Base_Price:'1200.89', Sell_Price:'1500.10', Category_Name:'Gaming Laptops',Tags:'Laptops',Additional_info:'High End gaming laptop with the mighty RTX series from Nvidia' },
+        {Name: 'Clothes', Thumbnails: 'https://img.freepik.com/free-photo/dark-haired-woman-with-red-lipstick-smiles-leans-stand-with-clothes-holds-package-pink-background_197531-17609.jpg?size=626&ext=jpg', Product_Gallery:{clothes}, Description:'Latest Summer trending clothes', Base_Price:'29.9', Sell_Price:'38.5', Category_Name:'Fashion',Tags:'Summer Wear',Additional_info:'Comfort summer wear with wide ranges to choose from' },
+        {Name: 'Watches', Thumbnails: 'https://cdn.anscommerce.com/catalog/brandstore/johnson/17_7_20/Sale.jpg', Product_Gallery:{watches}, Description:'Smartwatches with elegant style', Base_Price:'1600.89', Sell_Price:'1879.69', Category_Name:'Watches',Tags:'Smartwatch',Additional_info:'Latest smartwatch with high end accurate sensors' },
+        {Name: 'Shoes', Thumbnails: 'https://5.imimg.com/data5/BB/CV/SQ/SELLER-74573575/air-jordan-casual-shoes-250x250.jpg', Product_Gallery:{shoes}, Description:'Jordan jumpman limited edition shoes', Base_Price:'499.99', Sell_Price:'750.49', Category_Name:'Fashion',Tags:'Sneakers',Additional_info:'limited edition jordan jumpman with new colors to choose from' },
+        {Name:'Smartphones', Thumbnails:'https://www.xda-developers.com/files/2021/04/Best-Smartphones-to-buy-in-April-2021-1.jpg', Product_Gallery:{smartphone}, Description:'Smartphone with 5G', Base_Price:'389.56', Sell_Price:'520.70', Category_Name:'gadgets', Tags:'Mobiles', Additional_info:'Can beat China phones with ease'},
+        {Name: 'Laptop', Thumbnails: 'https://cdn.arstechnica.net/wp-content/uploads/2020/05/Razer-Blade-Pro-17-640x427.jpg', Product_Gallery:{laptop}, Description:'32mb L1 cache Gaming Laptop', Base_Price:'1200.89', Sell_Price:'1500.10', Category_Name:'Gaming Laptops',Tags:'Laptops',Additional_info:'High End gaming laptop with the mighty RTX series from Nvidia' },
+        {Name: 'Clothes', Thumbnails: 'https://img.freepik.com/free-photo/dark-haired-woman-with-red-lipstick-smiles-leans-stand-with-clothes-holds-package-pink-background_197531-17609.jpg?size=626&ext=jpg', Product_Gallery:{clothes}, Description:'Latest Summer trending clothes', Base_Price:'29.9', Sell_Price:'38.5', Category_Name:'Fashion',Tags:'Summer Wear',Additional_info:'Comfort summer wear with wide ranges to choose from' },
+        {Name: 'Watches', Thumbnails: 'https://cdn.anscommerce.com/catalog/brandstore/johnson/17_7_20/Sale.jpg', Product_Gallery:{watches}, Description:'Smartwatches with elegant style', Base_Price:'1600.89', Sell_Price:'1879.69', Category_Name:'Watches',Tags:'Smartwatch',Additional_info:'Latest smartwatch with high end accurate sensors' },
+        {Name: 'Shoes', Thumbnails: 'https://5.imimg.com/data5/BB/CV/SQ/SELLER-74573575/air-jordan-casual-shoes-250x250.jpg', Product_Gallery:{shoes}, Description:'Jordan jumpman limited edition shoes', Base_Price:'499.99', Sell_Price:'750.49', Category_Name:'Fashion',Tags:'Sneakers',Additional_info:'limited edition jordan jumpman with new colors to choose from' },
 
     ]
     const db=client.db('ecommerce')
@@ -27,6 +37,7 @@ MongoClient.connect(url, function(err, client)
     db.collection('Products').find({}).toArray(function(err, result2)
     {
         if (err) throw err;
+        console.log("Found : "+result2.matchedCount)
         console.log(result2)
     })
     // Updating Data
@@ -38,6 +49,7 @@ MongoClient.connect(url, function(err, client)
     // Deleting data
     db.collection('Products').deleteOne({Name:'Laptop'}, function(err, result4)
     {
+        if (err) throw err
         console.log("Deleted : "+result4.deletedCount)
         client.close();
     })

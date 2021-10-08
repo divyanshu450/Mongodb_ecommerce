@@ -10,6 +10,18 @@ MongoClient.connect(url, function(err, client)
         {Name:'Health',slug:'Health-items',image:'https://www.biospectrumasia.com/uploads/articles/1-10772.jpg', description:'Contains health related equipments'},
         {Name:'Fitness',slug:'Fitness-items',image:'https://image.shutterstock.com/image-photo/fitness-equipment-healthy-food-sneakers-260nw-362066123.jpg', description:'Contains workout items and nutrient powders'},
         {Name:'Decor',slug:'Decor-items',image:'https://assets-news.housing.com/news/wp-content/uploads/2018/01/30130410/Decor-trends-that-will-define-2018-FB-1200x700-compressed.jpg', description:'Contains house decorating items'},
+        {Name:'Gadgets',slug:'Gadget-items',image:'https://thegadgetflow.com/wp-content/uploads/2021/04/Intelli-ScoutPro-tiny-power-bank-01.jpeg', description:'Contains gadgets'},
+        {Name:'Clothes',slug:'Clothes-items',image:'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2xvdGhlcyUyMHNob3B8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80', description:'Contains clothes'},
+        {Name:'Accessories',slug:'Accessories-items',image:'https://images.ctfassets.net/3s5io6mnxfqz/3q6QfJJZgqTljZhxbwliRz/ecde7628474fb6613b460adedf02f64f/AdobeStock_185261221.jpeg?fm=jpg&w=900&fl=progressive', description:'Contains accessoties of all types'},
+        {Name:'Health',slug:'Health-items',image:'https://www.biospectrumasia.com/uploads/articles/1-10772.jpg', description:'Contains health related equipments'},
+        {Name:'Fitness',slug:'Fitness-items',image:'https://image.shutterstock.com/image-photo/fitness-equipment-healthy-food-sneakers-260nw-362066123.jpg', description:'Contains workout items and nutrient powders'},
+        {Name:'Decor',slug:'Decor-items',image:'https://assets-news.housing.com/news/wp-content/uploads/2018/01/30130410/Decor-trends-that-will-define-2018-FB-1200x700-compressed.jpg', description:'Contains house decorating items'},
+        {Name:'Gadgets',slug:'Gadget-items',image:'https://thegadgetflow.com/wp-content/uploads/2021/04/Intelli-ScoutPro-tiny-power-bank-01.jpeg', description:'Contains gadgets'},
+        {Name:'Clothes',slug:'Clothes-items',image:'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2xvdGhlcyUyMHNob3B8ZW58MHx8MHx8&ixlib=rb-1.2.1&w=1000&q=80', description:'Contains clothes'},
+        {Name:'Accessories',slug:'Accessories-items',image:'https://images.ctfassets.net/3s5io6mnxfqz/3q6QfJJZgqTljZhxbwliRz/ecde7628474fb6613b460adedf02f64f/AdobeStock_185261221.jpeg?fm=jpg&w=900&fl=progressive', description:'Contains accessoties of all types'},
+        {Name:'Health',slug:'Health-items',image:'https://www.biospectrumasia.com/uploads/articles/1-10772.jpg', description:'Contains health related equipments'},
+        {Name:'Fitness',slug:'Fitness-items',image:'https://image.shutterstock.com/image-photo/fitness-equipment-healthy-food-sneakers-260nw-362066123.jpg', description:'Contains workout items and nutrient powders'},
+        {Name:'Decor',slug:'Decor-items',image:'https://assets-news.housing.com/news/wp-content/uploads/2018/01/30130410/Decor-trends-that-will-define-2018-FB-1200x700-compressed.jpg', description:'Contains house decorating items'},
     ]
     const db=client.db('ecommerce')
     //Insertion|| Creation
@@ -22,6 +34,7 @@ MongoClient.connect(url, function(err, client)
     db.collection("Categories").find({}).toArray(function(err, result2)
     {
         if (err) throw err;
+        console.log("Found : "+result2.matchedCount)
         console.log(result2)
     })
     //Updating Data
